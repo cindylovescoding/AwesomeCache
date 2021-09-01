@@ -14,7 +14,7 @@ export class PawPatrolComponent {
 
     constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, protected _router: Router) {
       http.get(baseUrl + 'items/3').subscribe(result => {
-        console.log("Making api calls: /items/3");
+        console.log("Making api calls, sql connected, result:/items/3", result);
         this.result = result;
       }, error => console.error(error));
     }

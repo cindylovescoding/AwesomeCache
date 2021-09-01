@@ -13,9 +13,9 @@ export class HomeComponent {
   public result=null;
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, protected _router: Router) {
-    http.get<string>(baseUrl + 'portfolio', {responseType:'text'}).subscribe(result => {
+    http.get<string>(baseUrl + 'portfolio').subscribe(result => {
       this.result = result;
-      console.log("making api calls: /portfolio", this.result);
+      console.log("making api calls: /portfolio, non-sql , result:", this.result);
     }, error => console.error(error));
   }
 

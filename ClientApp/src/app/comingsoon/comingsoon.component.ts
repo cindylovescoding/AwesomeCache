@@ -10,27 +10,26 @@ import { Router } from '@angular/router';
 
 
 export class  ComingSoonComponent {
-  public forecasts: WeatherForecast[];
+  public items: TodoItemDTO[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, protected _router: Router) {
-    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
-      console.log("Making api calls: /weatherforecast");
-      this.forecasts = result;
+    http.get<TodoItemDTO[]>(baseUrl + 'items').subscribe(result => {
+      console.log("Making api calls with sql connections: /items, result:", result );
+      this.items = result;
     }, error => console.error(error));
   }
 
 
   private navigateTo(movieId: string) {
-    console.log("Navigate to SuisideSquad Component");
+    console.log("Navigate to movie:", movieId);
       this._router.navigateByUrl(`movies/${movieId}`);
   }
 }
 
 
-
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+interface TodoItemDTO
+{
+  id: number;
+  name: string;
+  isComplete: boolean
 }

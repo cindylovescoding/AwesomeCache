@@ -13,8 +13,8 @@ export class JungleCruiseComponent {
   public result=null;
 
     constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, protected _router: Router) {
-      http.get(baseUrl + 'items').subscribe(result => {
-        console.log("Making api calls: /items");
+      http.get(baseUrl + 'items/1').subscribe(result => {
+        console.log("Making api calls: /items/1, sql connected, result:", result);
         this.result = result;
       }, error => console.error(error));
     }

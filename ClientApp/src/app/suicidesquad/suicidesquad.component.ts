@@ -14,14 +14,10 @@ export class  SuicideSquadComponent {
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, protected _router: Router) {
     http.get(baseUrl + 'items/2').subscribe(result => {
-      console.log("Making api calls: /items/2");
+      console.log("Making api calls: /items/2, sql, result", result);
       this.result = result;
     }, error => console.error(error));
   }
 
-  private navigateTo(movieId: string) {
-    console.log("Navigate to SuisideSquad Component");
-      this._router.navigateByUrl(`movies/${movieId}`);
-  }
 }
 
