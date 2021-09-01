@@ -3,24 +3,25 @@ import { Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'suicide-squad',
+  templateUrl: './suicidesquad.component.html',
+  styleUrls: ['./suicidesquad.component.css']
 })
 
 
-export class HomeComponent {
+export class  SuicideSquadComponent {
   public result=null;
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, protected _router: Router) {
-    http.get<string>(baseUrl + 'portfolio', {responseType:'text'}).subscribe(result => {
+    http.get(baseUrl + 'items/2').subscribe(result => {
+      console.log("Making api calls: /items/2");
       this.result = result;
-      console.log("making api calls: /portfolio", this.result);
     }, error => console.error(error));
   }
 
-
   private navigateTo(movieId: string) {
+    console.log("Navigate to SuisideSquad Component");
       this._router.navigateByUrl(`movies/${movieId}`);
   }
 }
+
