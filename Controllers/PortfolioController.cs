@@ -23,14 +23,13 @@ namespace AwesomeCache.Controllers
         }
 
         [HttpGet]
-        public async Task<Object> Get()
+        public async Task<IActionResult> Get()
         {
             var num = rand.Next(3, 7);
             num *= 1000;
             await Task.Delay(num);
             
-
-            return ("SUCCESSFUL PORTFOLIO");
+            return Ok(num);
         }
     }
 }
