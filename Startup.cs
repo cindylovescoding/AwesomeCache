@@ -29,8 +29,10 @@ namespace AwesomeCache
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-            services.AddDbContext<TodoContext>(opt =>
-                                               opt.UseInMemoryDatabase("TodoList"));
+            //services.AddDbContext<TodoContext>(opt =>
+                                               //opt.UseInMemoryDatabase("TodoList"));
+            services.AddDbContext<TodoContext>(options =>
+    options.UseSqlServer(Configuration.GetConnectionString("ItemsContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
