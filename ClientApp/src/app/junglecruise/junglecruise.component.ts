@@ -16,7 +16,10 @@ export class JungleCruiseComponent {
       http.get(baseUrl + 'items/1').subscribe(result => {
         console.log("Making api calls: /items/1, sql connected, result:", result);
         this.result = result;
-      }, error => console.error(error));
+      }, error => {
+        this.result = undefined;
+      console.error(error);
+    });
     }
 
 }

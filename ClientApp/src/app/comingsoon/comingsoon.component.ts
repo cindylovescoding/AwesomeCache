@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 
 
 export class  ComingSoonComponent {
-  public items: TodoItemDTO[];
+  public items: TodoItemDTO[] = null;
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, protected _router: Router) {
     http.get<TodoItemDTO[]>(baseUrl + 'items').subscribe(result => {
